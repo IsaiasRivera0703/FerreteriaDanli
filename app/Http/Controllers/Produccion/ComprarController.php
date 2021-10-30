@@ -38,7 +38,7 @@ class ComprarController extends Controller
     {
         $compra = new Compra();
         $compra->id_proveedor = $request->input('id_proveedor');
-        //$compra->id_empleado = $request->input('id_empleado');
+        $compra->id_empleado = auth()->id();;
         $compra->saveOrFail();
         $idCompra = $compra->id;
         $inventarios = $this->obtenerProductos();
